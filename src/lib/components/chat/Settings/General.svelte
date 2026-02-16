@@ -109,6 +109,9 @@
 
 	onMount(async () => {
 		selectedTheme = localStorage.theme ?? 'system';
+		
+		// Apply saved theme on load (fixes lobster theme not applying)
+		applyTheme(selectedTheme);
 
 		languages = await getLanguages();
 
