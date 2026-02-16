@@ -184,6 +184,38 @@ OPENAI_API_BASE_URL="http://localhost:18789/v1"
 - 🔊 **TTS** - Real-time voice synthesis
 - 🌐 **Multi-Agent** - Distributed AI orchestration
 
+## 🦞 DuckBot Settings Tab
+
+The Lobster Edition includes a dedicated **DuckBot Settings** page in the admin panel with:
+
+### Quick Links
+- 📊 Dashboard - `http://100.106.80.61:5000`
+- 🔧 ClawAPI - `http://100.106.80.61:5001`
+- 🎨 ComfyUI - `http://100.106.80.61:8188`
+- 📚 API Docs - `http://100.106.80.61:18789/docs`
+
+### Model Presets
+- 🔌 **OpenClaw Gateway (WebSocket)** - `ws://localhost:18789` - Control Plane
+- 🤖 **OpenClaw Gateway (HTTP)** - `http://localhost:18789/v1` - Model API
+- 🤖 **MiniMax Portal** - Cloud models
+- 🦙 **LM Studio** - Local models
+- 🦙 **Ollama** - Local models
+
+### Agent Connections
+- 🤖 Agent Smith status
+- 🌐 Agent Mesh URL
+- 🔗 OpenClaw Gateway
+- 🎨 ComfyUI
+
+### Tools & Features
+- 🔊 Text-to-Speech (KaniTTS)
+- ₿ Crypto Tracking
+- 📈 Polymarket Integration
+- 📱 Social Media (disabled)
+
+### 🎨 Lobster Theme
+Select **🦞 Lobster** from the theme dropdown in Settings → General to activate the custom orange/red lobster-themed UI.
+
 ## 📡 OpenClaw Control Panel Endpoints
 
 | Endpoint | Description |
