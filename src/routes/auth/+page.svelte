@@ -586,6 +586,15 @@
 								</div>
 							</div>
 						{/if}
+
+						<!-- Support Development -->
+						<div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+							<p class="text-xs text-gray-500 dark:text-gray-400 text-center">
+								💰 Support Development<br/>
+								If you find OpenWebUI Lobster Edition useful, consider supporting development:<br/>
+								<span class="font-mono text-orange-500">Bitcoin: bc1q733czwuelntfug8jgur6md2lhzcx7l5ufks9y7</span>
+							</p>
+						</div>
 					</div>
 				{/if}
 			</div>
