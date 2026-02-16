@@ -97,6 +97,12 @@ from open_webui.routers import (
     scim,
 )
 
+# OpenClaw Plugin
+from open_webui.plugins.openclaw.routers import models as openclaw_models
+from open_webui.plugins.openclaw.routers import auth as openclaw_auth
+from open_webui.plugins.openclaw.routers import channels as openclaw_channels
+from open_webui.plugins.openclaw.routers import skills as openclaw_skills
+
 from open_webui.routers.retrieval import (
     get_embedding_function,
     get_reranking_function,
@@ -1476,6 +1482,12 @@ app.include_router(knowledge.router, prefix="/api/v1/knowledge", tags=["knowledg
 app.include_router(prompts.router, prefix="/api/v1/prompts", tags=["prompts"])
 app.include_router(tools.router, prefix="/api/v1/tools", tags=["tools"])
 app.include_router(skills.router, prefix="/api/v1/skills", tags=["skills"])
+
+# OpenClaw Plugin - Full OpenClaw Integration
+app.include_router(openclaw_models.router, prefix="/openclaw", tags=["openclaw-models"])
+app.include_router(openclaw_auth.router, prefix="/openclaw", tags=["openclaw-auth"])
+app.include_router(openclaw_channels.router, prefix="/openclaw", tags=["openclaw-channels"])
+app.include_router(openclaw_skills.router, prefix="/openclaw", tags=["openclaw-skills"])
 
 app.include_router(memories.router, prefix="/api/v1/memories", tags=["memories"])
 app.include_router(folders.router, prefix="/api/v1/folders", tags=["folders"])

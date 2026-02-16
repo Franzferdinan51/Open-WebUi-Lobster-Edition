@@ -85,3 +85,21 @@ WEBUI_SECRET_KEY="$WEBUI_SECRET_KEY" exec "$PYTHON_CMD" -m uvicorn open_webui.ma
     --port "$PORT" \
     --forwarded-allow-ips '*' \
     "${ARGS[@]}"
+# OpenClaw Integration - Add to main.py
+if ! grep -q "open_webui.plugins.openclaw" backend/open_webui/main.py; then
+    echo "Adding OpenClaw plugin to main.py..."
+    
+    # Add import after other router imports
+    sed -i 's/from open_webui.routers import (/from open_webui.routers import (\n    open_webui.plugins.openclaw as openclaw_routers,/' backend/open_webui/main.py
+    
+    # Add router include after other routers
+    sed -i '/app.include_router(skills.router, prefix="\/api\/v1\/skills"/a\
+\
+# OpenClaw Plugin\
+app.include_router(openclaw_routers.models.router, prefix="\/openclaw", tags=["openclaw-models"])\
+app.include_router(openclaw_routers.auth.router, prefix="\/openclaw", tags=["openclaw-auth"])\
+app.include_router(openclaw_routers.channels.router, prefix="\/openclaw", tags=["openclaw-channels"])\
+app.include_router(openclaw_routers.skills.router, prefix="\/openclaw", tags=["openclaw-skills"])' backend/open_webui/start.sh 2>/dev/null
+    
+    echo "OpenClaw plugin added!"
+fi

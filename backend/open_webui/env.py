@@ -987,3 +987,11 @@ PIP_PACKAGE_INDEX_OPTIONS = os.getenv("PIP_PACKAGE_INDEX_OPTIONS", "").split()
 ####################################
 
 EXTERNAL_PWA_MANIFEST_URL = os.environ.get("EXTERNAL_PWA_MANIFEST_URL")
+
+####################################
+# OPENCLAW INTEGRATION
+####################################
+
+OPENCLAW_GATEWAY_URL = os.environ.get("OPENCLAW_GATEWAY_URL", "http://localhost:18789")
+OPENCLAW_GATEWAY_KEY = os.environ.get("OPENCLAW_GATEWAY_KEY", "")
+OPENCLAW_ENABLED = os.environ.get("OPENCLAW_ENABLED", "true").lower() == "true"
