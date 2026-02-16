@@ -21,6 +21,7 @@
 	import Evaluations from './Settings/Evaluations.svelte';
 	import CodeExecution from './Settings/CodeExecution.svelte';
 	import Tools from './Settings/Tools.svelte';
+	import DuckBot from './Settings/DuckBot.svelte';
 
 	import ChartBar from '../icons/ChartBar.svelte';
 	import DocumentChartBar from '../icons/DocumentChartBar.svelte';
@@ -71,6 +72,25 @@
 	let filteredSettings = [];
 
 	const allSettings = [
+		{
+			id: 'duckbot',
+			title: '🦞 DuckBot',
+			route: '/admin/settings/duckbot',
+			keywords: [
+				'duckbot',
+				'lobster',
+				'openclaw',
+				'agent mesh',
+				'agent smith',
+				'minimax',
+				'lm studio',
+				'comfyui',
+				'tts',
+				'crypto',
+				'polymarket',
+				'social'
+			]
+		},
 		{
 			id: 'general',
 			title: 'General',
@@ -507,7 +527,9 @@
 	<div
 		class="flex-1 mt-3 lg:mt-1 px-[16px] lg:pr-[16px] lg:pl-0 overflow-y-scroll scrollbar-hidden"
 	>
-		{#if selectedTab === 'general'}
+		{#if selectedTab === 'duckbot'}
+		<DuckBot saveHandler={saveHandler} />
+	{:else if selectedTab === 'general'}
 			<General
 				saveHandler={async () => {
 					toast.success($i18n.t('Settings saved successfully!'));

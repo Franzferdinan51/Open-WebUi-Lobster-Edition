@@ -1,0 +1,129 @@
+/* 
+ * OpenWebUI Lobster Edition Theme 🦞
+ * Custom theme with orange/red lobster colors
+ */
+
+/* Base lobster colors */
+:root {
+    --lobster-primary: #ff6b35;
+    --lobster-secondary: #ff8c42;
+    --lobster-accent: #ffd166;
+    --lobster-dark: #c92a2a;
+    --lobster-light: #fff3e0;
+}
+
+/* Dark theme overrides */
+.dark {
+    --lobster-primary: #ff8c42;
+    --lobster-secondary: #ff6b35;
+    --lobster-accent: #ffd166;
+    --lobster-dark: #ff6b6b;
+    --lobster-light: #2d1f1f;
+}
+
+/* Custom accent colors for Lobster Theme */
+.lobster-theme {
+    --color-primary: #ff6b35;
+    --color-primary-hover: #ff8c42;
+    --color-primary-dark: #c92a2a;
+}
+
+/* Gradient backgrounds */
+.lobster-gradient {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+}
+
+.lobster-gradient-text {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffd166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Special lobster border */
+.lobster-border {
+    border: 2px solid #ff6b35;
+    border-radius: 8px;
+}
+
+.lobster-glow {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Button styles */
+.btn-lobster {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-lobster:hover {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Card styles */
+.lobster-card {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(201, 42, 42, 0.1) 100%);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 1rem;
+}
+
+/* Sidebar accent */
+.sidebar-lobster {
+    border-left: 4px solid #ff6b35;
+}
+
+/* Badge styles */
+.badge-lobster {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Splash screen override */
+.splash-lobster {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+/* Model selector highlight */
+.model-lobster {
+    border-left: 3px solid #ff6b35;
+    background: rgba(255, 107, 53, 0.05);
+}
+
+/* Chat bubble accent */
+.chat-bubble-lobster {
+    border-bottom-right-radius: 0;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+/* Animation */
+@keyframes lobster-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(255, 107, 53, 0);
+    }
+}
+
+.lobster-pulse {
+    animation: lobster-pulse 2s infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+}

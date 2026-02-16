@@ -41,6 +41,7 @@
 
 	import '../tailwind.css';
 	import '../app.css';
+	import '../lib/styles/lobster-theme.css';
 	import 'tippy.js/dist/tippy.css';
 
 	import { executeToolServer, getBackendConfig, getVersion } from '$lib/apis';
