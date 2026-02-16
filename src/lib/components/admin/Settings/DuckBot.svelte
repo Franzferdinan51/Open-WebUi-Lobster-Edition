@@ -16,11 +16,57 @@
 	let polymarketEnabled = true;
 	let socialEnabled = false;
 
-	// Connection Status
-	let agentSmithStatus = 'Connected';
-	let openclawGateway = 'http://localhost:18789';
-	let agentMeshUrl = 'http://localhost:4000';
-	let comfyuiUrl = 'http://localhost:8188';
+	// Agent Registration State
+	let agentName = 'DuckBot';
+	let agentEndpoint = 'http://localhost:18789';
+	let agentCapabilities = ['messaging', 'task_execution', 'orchestration', 'social-media', 'research'];
+	let registering = false;
+	let registerStatus = '';
+	
+	const registerAgent = async () => {
+		registering = true;
+		registerStatus = 'Registering agent...';
+		try {
+			// Register with Agent Mesh
+			const response = await fetch('http://localhost:4000/api/agents', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-API-Key': 'openclaw-mesh-default-key'
+				},
+				body: JSON.stringify({
+					name: agentName,
+					endpoint: agentEndpoint,
+					capabilities: agentCapabilities
+				})
+			});
+			if (response.ok) {
+				registerStatus = '✅ Agent registered successfully!';
+				toast.success('OpenClaw Agent registered!');
+			} else {
+				registerStatus = '❌ Registration failed';
+				toast.error('Failed to register agent');
+			}
+		} catch (e) {
+			registerStatus = '❌ Error: ' + e;
+			toast.error('Registration error');
+		}
+		registering = false;
+	};
+
+	const testAgentConnection = async () => {
+		toast.loading('Testing connection...');
+		try {
+			const response = await fetch('http://localhost:18789/api/health');
+			if (response.ok) {
+				toast.success('✅ Gateway connected!');
+			} else {
+				toast.error('❌ Gateway not responding');
+			}
+		} catch (e) {
+			toast.error('❌ Cannot reach gateway');
+		}
+	};
 
 	// Model Presets - OpenClaw uses WebSocket for control, HTTP for API
 	let presets = [
@@ -210,6 +256,50 @@
 					<input type="checkbox" bind:checked={comfyuiEnabled} class="checkbox" />
 					<span>ComfyUI (Image Gen)</span>
 				</label>
+			</div>
+		</div>
+
+		<!-- OpenClaw Agent Setup -->
+		<div>
+			<div class=" mb-2.5 text-sm font-medium flex items-center gap-2">
+				🤖 OpenClaw Agent Registration
+			</div>
+			
+			<div class="border border-orange-300 dark:border-orange-700 rounded-lg p-4 bg-orange-50 dark:bg-orange-900/10">
+				<p class="text-xs text-gray-600 dark:text-gray-400 mb-3">
+					Register this agent with Agent Mesh network
+				</p>
+				
+				<div class="space-y-3">
+					<div>
+						<label class="text-xs text-gray-500">Agent Name</label>
+						<input type="text" bind:value={agentName} class="input text-sm w-full" placeholder="DuckBot" />
+					</div>
+					
+					<div>
+						<label class="text-xs text-gray-500">Gateway Endpoint</label>
+						<input type="text" bind:value={agentEndpoint} class="input text-sm w-full" placeholder="http://localhost:18789" />
+					</div>
+					
+					<div class="flex gap-2">
+						<button 
+							class="px-3 py-1.5 bg-orange-600 text-white rounded text-sm hover:bg-orange-700"
+							on:click={registerAgent}
+						>
+							🚀 Register
+						</button>
+						<button 
+							class="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 rounded text-sm"
+							on:click={testAgentConnection}
+						>
+							Test
+						</button>
+					</div>
+					
+					{#if registerStatus}
+						<p class="text-sm {registerStatus.includes('✅') ? 'text-green-600' : 'text-red-600'}">{registerStatus}</p>
+					{/if}
+				</div>
 			</div>
 		</div>
 
