@@ -1,0 +1,124 @@
+/* 
+ * OpenWebUI Lobster Edition Theme 🦞
+ * Custom theme with orange/red lobster colors
+ */
+
+/* Base lobster colors - applied to root */
+:root {
+    --lobster-primary: #ff6b35;
+    --lobster-secondary: #ff8c42;
+    --lobster-accent: #ffd166;
+    --lobster-dark: #c92a2a;
+    --lobster-light: #fff3e0;
+}
+
+/* Dark theme overrides */
+.dark {
+    --lobster-primary: #ff8c42;
+    --lobster-secondary: #ff6b35;
+    --lobster-accent: #ffd166;
+    --lobster-dark: #ff6b6b;
+    --lobster-light: #2d1f1f;
+}
+
+/* When lobster theme is applied to html element */
+html.lobster {
+    /* Override primary colors */
+    --color-primary: #ff6b35 !important;
+    --color-primary-hover: #ff8c42 !important;
+    --color-primary-dark: #c92a2a !important;
+    
+    /* Accent colors */
+    --color-accent: #ffd166 !important;
+}
+
+/* Gradient backgrounds */
+.lobster-gradient {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+}
+
+.lobster-gradient-text {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffd166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Button styles for lobster theme */
+html.lobster button.primary,
+html.lobster .btn-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%) !important;
+}
+
+html.lobster button.primary:hover,
+html.lobster .btn-primary:hover {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Card styles */
+.lobster-card {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(201, 42, 42, 0.1) 100%);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 1rem;
+}
+
+/* Badge styles */
+.badge-lobster {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Animation */
+@keyframes lobster-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(255, 107, 53, 0);
+    }
+}
+
+.lobster-pulse {
+    animation: lobster-pulse 2s infinite;
+}
+
+/* Scrollbar styling */
+html.lobster ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b35 0%, #c92a2a 100%) !important;
+}
+
+html.lobster ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%) !important;
+}
+
+/* Model selector highlight */
+html.lobster .model-selector {
+    border-left: 3px solid #ff6b35;
+    background: rgba(255, 107, 53, 0.05);
+}
+
+/* Sidebar accent */
+html.lobster .sidebar {
+    border-left: 4px solid #ff6b35;
+}
+
+/* Input focus states */
+html.lobster input:focus,
+html.lobster textarea:focus {
+    border-color: #ff6b35 !important;
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
+}
+
+/* Link colors */
+html.lobster a {
+    color: #ff6b35;
+}
+
+html.lobster a:hover {
+    color: #ff8c42;
+}

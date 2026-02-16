@@ -66,6 +66,9 @@
 				} else if (localStorage.theme === 'her') {
 					document.documentElement.classList.add('her');
 					metaThemeColorTag.setAttribute('content', '#983724');
+				} else if (localStorage.theme === 'lobster') {
+					document.documentElement.classList.add('lobster');
+					metaThemeColorTag.setAttribute('content', '#ff6b35');
 				} else {
 					document.documentElement.classList.add('dark');
 					metaThemeColorTag.setAttribute('content', '#171717');
@@ -191,6 +194,10 @@
 
 		html.her #splash-screen {
 			background: #983724;
+		}
+		
+		html.lobster #splash-screen {
+			background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 		}
 
 		#logo-her {
