@@ -30,6 +30,13 @@
 
 	const i18n = getContext('i18n');
 
+	// Define saveHandler for DuckBot and other settings tabs
+	const saveHandler = async () => {
+		toast.success($i18n.t('Settings saved successfully!'));
+		await tick();
+		await config.set(await getBackendConfig());
+	};
+
 	let selectedTab = 'general';
 
 	// Get current tab from URL pathname, default to 'general'
@@ -49,7 +56,8 @@
 			'audio',
 			'images',
 			'pipelines',
-			'db'
+			'db',
+			'duckbot'
 		].includes(tabFromPath)
 			? tabFromPath
 			: 'general';
