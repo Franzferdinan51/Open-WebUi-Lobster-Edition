@@ -22,6 +22,7 @@
 	import CodeExecution from './Settings/CodeExecution.svelte';
 	import Tools from './Settings/Tools.svelte';
 	import DuckBot from './Settings/DuckBot.svelte';
+	import { OpenClawAdmin, Overview, Agents, Channels, Cron, Nodes, Sessions, Logs, Usage, Skills } from '$lib/components/admin/Settings/OpenClaw';
 
 	import ChartBar from '../icons/ChartBar.svelte';
 	import DocumentChartBar from '../icons/DocumentChartBar.svelte';
@@ -57,7 +58,16 @@
 			'images',
 			'pipelines',
 			'db',
-			'duckbot'
+			'duckbot',
+			'openclaw',
+			'openclaw-agents',
+			'openclaw-channels',
+			'openclaw-cron',
+			'openclaw-nodes',
+			'openclaw-sessions',
+			'openclaw-logs',
+			'openclaw-usage',
+			'openclaw-skills'
 		].includes(tabFromPath)
 			? tabFromPath
 			: 'general';
@@ -98,6 +108,70 @@
 				'polymarket',
 				'social'
 			]
+		},
+		{
+			id: 'openclaw',
+			title: '🔧 OpenClaw',
+			route: '/admin/settings/openclaw',
+			keywords: [
+				'openclaw',
+				'gateway',
+				'mesh',
+				'agent',
+				'sessions',
+				'nodes',
+				'cron',
+				'logs',
+				'skills'
+			]
+		},
+		{
+			id: 'openclaw-agents',
+			title: '🤖 Agents',
+			route: '/admin/settings/openclaw-agents',
+			keywords: ['agents', 'mesh', 'register']
+		},
+		{
+			id: 'openclaw-channels',
+			title: '📱 Channels',
+			route: '/admin/settings/openclaw-channels',
+			keywords: ['channels', 'telegram', 'discord', 'whatsapp']
+		},
+		{
+			id: 'openclaw-cron',
+			title: '⏰ Cron',
+			route: '/admin/settings/openclaw-cron',
+			keywords: ['cron', 'scheduled', 'jobs']
+		},
+		{
+			id: 'openclaw-nodes',
+			title: '🖥️ Nodes',
+			route: '/admin/settings/openclaw-nodes',
+			keywords: ['nodes', 'devices']
+		},
+		{
+			id: 'openclaw-sessions',
+			title: '💬 Sessions',
+			route: '/admin/settings/openclaw-sessions',
+			keywords: ['sessions', 'chat']
+		},
+		{
+			id: 'openclaw-logs',
+			title: '📋 Logs',
+			route: '/admin/settings/openclaw-logs',
+			keywords: ['logs', 'debug']
+		},
+		{
+			id: 'openclaw-usage',
+			title: '📊 Usage',
+			route: '/admin/settings/openclaw-usage',
+			keywords: ['usage', 'stats', 'metrics']
+		},
+		{
+			id: 'openclaw-skills',
+			title: '🧩 Skills',
+			route: '/admin/settings/openclaw-skills',
+			keywords: ['skills', 'plugins']
 		},
 		{
 			id: 'general',
@@ -537,6 +611,24 @@
 	>
 		{#if selectedTab === 'duckbot'}
 		<DuckBot saveHandler={saveHandler} />
+	{:else if selectedTab === 'openclaw'}
+		<OpenClawAdmin />
+	{:else if selectedTab === 'openclaw-agents'}
+		<Agents />
+	{:else if selectedTab === 'openclaw-channels'}
+		<Channels />
+	{:else if selectedTab === 'openclaw-cron'}
+		<Cron />
+	{:else if selectedTab === 'openclaw-nodes'}
+		<Nodes />
+	{:else if selectedTab === 'openclaw-sessions'}
+		<Sessions />
+	{:else if selectedTab === 'openclaw-logs'}
+		<Logs />
+	{:else if selectedTab === 'openclaw-usage'}
+		<Usage />
+	{:else if selectedTab === 'openclaw-skills'}
+		<Skills />
 	{:else if selectedTab === 'general'}
 			<General
 				saveHandler={async () => {
