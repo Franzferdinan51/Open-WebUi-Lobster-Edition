@@ -22,12 +22,13 @@
 	let agentMeshUrl = 'http://100.74.88.40:4000';
 	let comfyuiUrl = 'http://100.74.88.40:8188';
 
-	// Model Presets
+	// Model Presets - OpenClaw uses WebSocket for control, HTTP for API
 	let presets = [
-		{ name: 'OpenClaw Gateway', url: 'http://localhost:18789/v1', type: 'openai' },
-		{ name: 'MiniMax Portal', url: 'https://api.minimax.chat/v1', type: 'openai' },
-		{ name: 'LM Studio Local', url: 'http://localhost:1234/v1', type: 'openai' },
-		{ name: 'Ollama Local', url: 'http://localhost:11434', type: 'ollama' }
+		{ name: 'OpenClaw Gateway (WebSocket)', url: 'ws://localhost:18789', type: 'websocket', desc: 'Control Plane (WS)' },
+		{ name: 'OpenClaw Gateway (HTTP)', url: 'http://localhost:18789/v1', type: 'openai', desc: 'Model API' },
+		{ name: 'MiniMax Portal', url: 'https://api.minimax.chat/v1', type: 'openai', desc: 'Cloud Model' },
+		{ name: 'LM Studio Local', url: 'http://localhost:1234/v1', type: 'openai', desc: 'Local Models' },
+		{ name: 'Ollama Local', url: 'http://localhost:11434', type: 'ollama', desc: 'Local Models' }
 	];
 
 	const save = async () => {
@@ -61,6 +62,17 @@
 			</div>
 			<div class="text-xs mt-1 text-gray-500">
 				OpenWebUI with full OpenClaw Integration
+			</div>
+		</div>
+
+		<!-- OpenClaw WebSocket Info -->
+		<div class="border border-blue-300 dark:border-blue-700 rounded-lg p-3 bg-blue-50 dark:bg-blue-900/20">
+			<div class="flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-300">
+				🔗 OpenClaw WebSocket Connection
+			</div>
+			<div class="text-xs mt-1 text-blue-600 dark:text-blue-400">
+				OpenClaw uses WebSocket (ws://) for control plane and HTTP for model API.
+				<br/>Gateway: <code>ws://localhost:18789</code>
 			</div>
 		</div>
 
@@ -139,7 +151,8 @@
 				{#each presets as preset}
 					<div class="flex items-center justify-between">
 						<div class="flex items-center gap-2">
-							<span>{preset.type === 'openai' ? '🤖' : '🦙'} {preset.name}</span>
+							<span>{preset.type === 'websocket' ? '🔌' : preset.type === 'openai' ? '🤖' : '🦙'} {preset.name}</span>
+							<span class="text-xs text-gray-500">({preset.desc})</span>
 						</div>
 						<div class="flex items-center gap-2">
 							<input type="text" value={preset.url} class="input text-xs" readonly />
