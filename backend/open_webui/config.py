@@ -1579,6 +1579,14 @@ DEFAULT_USER_PERMISSIONS = {
         "image_generation": USER_PERMISSIONS_FEATURES_IMAGE_GENERATION,
         "code_interpreter": USER_PERMISSIONS_FEATURES_CODE_INTERPRETER,
         "memories": USER_PERMISSIONS_FEATURES_MEMORIES,
+        # DuckBot Lobster Edition Features
+        "openclaw_integration": True,
+        "agent_mesh": True,
+        "comfyui_integration": True,
+        "voice_generation": True,
+        "crypto_tracking": True,
+        "polymarket_integration": True,
+        "social_media_automation": True,
     },
     "settings": {
         "interface": USER_PERMISSIONS_SETTINGS_INTERFACE,

@@ -3,6 +3,31 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR" || exit
 
+# =====================
+# DuckBot Lobster Edition Custom Config
+# =====================
+export WEBUI_NAME="Open WebUI Lobster Edition 🦞"
+
+# Default models - prefer OpenClaw, LM Studio, and MiniMax
+export DEFAULT_MODELS="openclaw/*,lmstudio/*,minimax-portal/*"
+export DEFAULT_PINNED_MODELS="openclaw/gpt-5.2,lmstudio/qwen3-coder-next,minimax-portal/MiniMax-M2.5"
+
+# OpenClaw Gateway as primary model source
+export OLLAMA_API_BASE_URL="http://localhost:18789/v1"
+export OPENAI_API_BASE_URL="http://localhost:18789/v1"
+export OPENAI_API_KEY=""
+
+# MiniMax as secondary
+# export OPENAI_API_BASE_URL="https://api.minimax.chat/v1"
+# export OPENAI_API_KEY="${MINIMAX_API_KEY:-your-minimax-key-here}"
+
+# Enable all DuckBot features
+export ENABLE_AGENT_MESH=true
+export ENABLE_COMFYUI=true
+export ENABLE_CRYPTO=true
+export ENABLE_POLYMARKET=true
+# =====================
+
 # Add conditional Playwright browser installation
 if [[ "${WEB_LOADER_ENGINE,,}" == "playwright" ]]; then
     if [[ -z "${PLAYWRIGHT_WS_URL}" ]]; then

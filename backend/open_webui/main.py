@@ -606,9 +606,9 @@ print(rf"""
  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝     ╚══╝╚══╝ ╚══════╝╚═════╝  ╚═════╝ ╚═╝
 
 
-v{VERSION} - building the best AI user interface.
+v{VERSION} - Open WebUI Lobster Edition 🦞
 {f"Commit: {WEBUI_BUILD_HASH}" if WEBUI_BUILD_HASH != "dev-build" else ""}
-https://github.com/open-webui/open-webui
+https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition
 """)
 
 

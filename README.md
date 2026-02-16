@@ -139,6 +139,51 @@ AGENT_MESH_ENABLED=true
 | `/agent-mesh/api/mesh/catastrophe` | Catastrophe reporting |
 | `/agent-mesh/api/mesh/status` | Mesh connection status |
 
+## 🛠️ Menus & Settings
+
+### Custom Admin Menus
+
+- **OpenClaw** - Gateway status, model sync, channel management
+- **Agent Mesh** - Agent registry, health, file sharing
+- **Control Panel** - Full OpenClaw admin controls
+
+### Settings Pages
+
+| Page | Features |
+|------|----------|
+| **General** | OpenClaw gateway URL, API key, sync settings |
+| **Models** | OpenClaw model sync, LM Studio, Ollama, MiniMax |
+| **Connections** | Agent Mesh, ComfyUI, external APIs |
+| **Channels** | Telegram, WhatsApp, Discord, Slack management |
+| **Tools** | Browser, TTS, Canvas, custom tools |
+| **Audio** | TTS/STT configuration |
+| **Images** | Image generation settings |
+| **Web Search** | Brave, SearXNG, Tavily configuration |
+| **Code Execution** | Python, JavaScript runtime |
+
+### Default Configuration
+
+The Lobster Edition comes pre-configured to connect to your OpenClaw instance:
+
+```bash
+# Default model sources (in priority order)
+DEFAULT_MODELS="openclaw/*,lmstudio/*,minimax-portal/*"
+DEFAULT_PINNED_MODELS="openclaw/gpt-5.2,lmstudio/qwen3-coder-next,minimax-portal/MiniMax-M2.5"
+
+# OpenClaw Gateway as primary
+OLLAMA_API_BASE_URL="http://localhost:18789/v1"
+OPENAI_API_BASE_URL="http://localhost:18789/v1"
+```
+
+### DuckBot Features (Enabled by Default)
+
+- 🤖 **Agent Smith** - Connected via Agent Mesh
+- 🧠 **MiniMax M2.5** - Primary reasoning model
+- 💻 **LM Studio** - Local coding models (Qwen3, etc.)
+- 🎨 **ComfyUI** - Distributed image generation
+- 🔊 **TTS** - Real-time voice synthesis
+- 🌐 **Multi-Agent** - Distributed AI orchestration
+
 ## 📡 OpenClaw Control Panel Endpoints
 
 | Endpoint | Description |

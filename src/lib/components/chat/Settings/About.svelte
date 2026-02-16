@@ -46,6 +46,26 @@
 
 <div id="tab-about" class="flex flex-col h-full justify-between space-y-3 text-sm mb-6">
 	<div class=" space-y-3 overflow-y-scroll max-h-[28rem] md:max-h-full">
+		<!-- DuckBot Lobster Edition Custom Info -->
+		<div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg p-4 text-white">
+			<div class="flex items-center gap-2 text-lg font-bold">
+				🦞 Open WebUI Lobster Edition
+			</div>
+			<div class="text-xs mt-1 opacity-90">
+				AI Assistant powered by OpenClaw + Agent Mesh
+			</div>
+			<div class="text-xs mt-2 flex gap-3 flex-wrap">
+				<span>🤖 Agent Smith: Connected</span>
+				<span>🧠 MiniMax M2.5</span>
+				<span>💻 LM Studio</span>
+				<span>🎨 ComfyUI</span>
+				<span>🔊 TTS</span>
+			</div>
+			<div class="text-xs mt-2 opacity-75">
+				🌐 Distributed AI with multi-agent orchestration
+			</div>
+		</div>
+
 		<div>
 			<div class=" mb-2.5 text-sm font-medium flex space-x-2 items-center">
 				<div>
@@ -62,7 +82,7 @@
 
 						{#if $config?.features?.enable_version_update_check}
 							<a
-								href="https://github.com/open-webui/open-webui/releases/tag/v{version.latest}"
+								href="https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition/releases/tag/v{version.latest}"
 								target="_blank"
 							>
 								{updateAvailable === null
@@ -137,7 +157,7 @@
 					/>
 				</a>
 
-				<a href="https://github.com/open-webui/open-webui" target="_blank">
+				<a href="https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition" target="_blank">
 					<img
 						alt="Github Repo"
 						src="https://img.shields.io/github/stars/open-webui/open-webui?style=social&label=Star us on Github"
@@ -158,7 +178,7 @@
 					href="https://openwebui.com"
 					target="_blank"
 					class="underline">Open WebUI Inc.</a
-				> <a href="https://github.com/open-webui/open-webui/blob/main/LICENSE" target="_blank"
+				> <a href="https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition/blob/main/LICENSE" target="_blank"
 					>All rights reserved.</a
 				>
 </pre>
