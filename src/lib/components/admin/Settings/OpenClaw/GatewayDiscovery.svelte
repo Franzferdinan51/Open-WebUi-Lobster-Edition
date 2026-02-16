@@ -1,7 +1,7 @@
 <script lang="ts">
   // Gateway Discovery from ClawTabs
   const GATEWAY_PORTS = [18789, 8080, 3000];
-  const SUBNET_PATTERNS = ['192.168.1', '192.168.0', '10.0.0'];
+  const SUBNET_PATTERNS = ['192.168.1', '192.168.0', '10.0.0', '100.106.80'];
   
   interface DiscoveredGateway {
     url: string;
