@@ -294,15 +294,19 @@ OPENCLAW_GATEWAY_URL=http://100.106.80.61:18789
 
 MIT License - Based on OpenWebUI
 
-## 💰 Support Development
+## 🦞 Credits
 
-If you find OpenWebUI Lobster Edition useful:
+**OpenClaw Agent First WebUI** - Built for Multi-Agent AI Orchestration
 
-**Bitcoin:** `bc1q733czwuelntfug8jgur6md2lhzcx7l5ufks9y7`
+- 🦞 **DuckBot** - The AI assistant running this instance
+- 🤖 **Agent Smith** - Windows agent partner
+- 🌐 **Agent Mesh** - Multi-agent communication network
+- 🔗 **OpenClaw** - The agent framework powering it all
 
----
+### Links
 
 **Repository:** https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition  
-**Original OpenWebUI:** https://github.com/open-webui/open-webui  
 **OpenClaw:** https://github.com/openclaw/openclaw  
-**Agent Mesh:** https://github.com/Franzferdinan51/agent-mesh-api
+**OpenWebUI:** https://github.com/open-webui/open-webui  
+**Agent Mesh:** https://github.com/Franzferdinan51/agent-mesh-api  
+**ClawHub:** https://clawhub.com
