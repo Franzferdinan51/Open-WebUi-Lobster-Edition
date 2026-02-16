@@ -19,8 +19,8 @@
 	// Connection Status
 	let agentSmithStatus = 'Connected';
 	let openclawGateway = 'http://localhost:18789';
-	let agentMeshUrl = 'http://100.74.88.40:4000';
-	let comfyuiUrl = 'http://100.74.88.40:8188';
+	let agentMeshUrl = 'http://localhost:4000';
+	let comfyuiUrl = 'http://localhost:8188';
 
 	// Model Presets - OpenClaw uses WebSocket for control, HTTP for API
 	let presets = [
@@ -112,16 +112,16 @@
 				🔗 Quick Links
 			</div>
 			<div class="flex flex-wrap gap-2">
-				<a href="http://100.106.80.61:5000" target="_blank" class="px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs hover:bg-orange-200 dark:hover:bg-orange-900/50">
+				<a href="http://localhost:5000" target="_blank" class="px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs hover:bg-orange-200 dark:hover:bg-orange-900/50">
 					📊 Dashboard
 				</a>
-				<a href="http://100.106.80.61:5001" target="_blank" class="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs hover:bg-blue-200 dark:hover:bg-blue-900/50">
+				<a href="http://localhost:5001" target="_blank" class="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs hover:bg-blue-200 dark:hover:bg-blue-900/50">
 					🔧 ClawAPI
 				</a>
-				<a href="http://100.106.80.61:8188" target="_blank" class="px-3 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs hover:bg-purple-200 dark:hover:bg-purple-900/50">
+				<a href="http://localhost:8188" target="_blank" class="px-3 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs hover:bg-purple-200 dark:hover:bg-purple-900/50">
 					🎨 ComfyUI
 				</a>
-				<a href="http://100.106.80.61:18789/docs" target="_blank" class="px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs hover:bg-green-200 dark:hover:bg-green-900/50">
+				<a href="http://localhost:18789/docs" target="_blank" class="px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs hover:bg-green-200 dark:hover:bg-green-900/50">
 					📚 API Docs
 				</a>
 			</div>

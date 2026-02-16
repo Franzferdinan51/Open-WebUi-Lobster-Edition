@@ -189,10 +189,10 @@ OPENAI_API_BASE_URL="http://localhost:18789/v1"
 The Lobster Edition includes a dedicated **DuckBot Settings** page in the admin panel with:
 
 ### Quick Links
-- 📊 Dashboard - `http://100.106.80.61:5000`
-- 🔧 ClawAPI - `http://100.106.80.61:5001`
-- 🎨 ComfyUI - `http://100.106.80.61:8188`
-- 📚 API Docs - `http://100.106.80.61:18789/docs`
+- 📊 Dashboard - `http://localhost:5000`
+- 🔧 ClawAPI - `http://localhost:5001`
+- 🎨 ComfyUI - `http://localhost:8188`
+- 📚 API Docs - `http://localhost:18789/docs`
 
 ### Model Presets
 - 🔌 **OpenClaw Gateway (WebSocket)** - `ws://localhost:18789` - Control Plane
@@ -268,7 +268,7 @@ OPENAI_BASE_URL=http://localhost:18789/v1
 
 Connect to remote gateway via Tailscale:
 ```bash
-OPENCLAW_GATEWAY_URL=http://100.106.80.61:18789
+OPENCLAW_GATEWAY_URL=http://localhost:18789
 ```
 
 ### Models Supported
