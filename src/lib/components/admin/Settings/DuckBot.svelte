@@ -68,6 +68,32 @@
 		}
 	};
 
+	// Test Chat
+	let testMessage = '';
+	let chatResponse = '';
+	let chatting = false;
+	
+	const sendTestMessage = async () => {
+		if (!testMessage.trim()) return;
+		chatting = true;
+		chatResponse = '...';
+		try {
+			const response = await fetch('http://localhost:18789/v1/chat/completions', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					model: 'gpt-4',
+					messages: [{ role: 'user', content: testMessage }]
+				})
+			});
+			const data = await response.json();
+			chatResponse = data.choices?.[0]?.message?.content || 'No response';
+		} catch (e) {
+			chatResponse = 'Error: ' + e;
+		}
+		chatting = false;
+	};
+
 	// Model Presets - OpenClaw uses WebSocket for control, HTTP for API
 	let presets = [
 		{ name: 'OpenClaw Gateway (WebSocket)', url: 'ws://localhost:18789', type: 'websocket', desc: 'Control Plane (WS)' },
@@ -298,6 +324,38 @@
 					
 					{#if registerStatus}
 						<p class="text-sm {registerStatus.includes('✅') ? 'text-green-600' : 'text-red-600'}">{registerStatus}</p>
+					{/if}
+				</div>
+			</div>
+		</div>
+
+		<!-- Test Chat -->
+		<div>
+			<div class=" mb-2.5 text-sm font-medium flex items-center gap-2">
+				💬 Test Chat with Agent
+			</div>
+			
+			<div class="border border-blue-200 dark:border-blue-700 rounded-lg p-4 bg-blue-50 dark:bg-blue-900/10">
+				<div class="space-y-3">
+					<textarea 
+						bind:value={testMessage}
+						placeholder="Type a message to test the agent..."
+						class="input text-sm w-full h-20 resize-none"
+					></textarea>
+					
+					<button 
+						class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+						on:click={sendTestMessage}
+						disabled={chatting || !testMessage.trim()}
+					>
+						{chatting ? 'Sending...' : 'Send Message'}
+					</button>
+					
+					{#if chatResponse}
+						<div class="mt-3 p-3 bg-white dark:bg-gray-800 rounded border">
+							<p class="text-sm font-medium text-gray-500 mb-1">Response:</p>
+							<p class="text-sm">{chatResponse}</p>
+						</div>
 					{/if}
 				</div>
 			</div>
