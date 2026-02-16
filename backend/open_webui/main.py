@@ -1535,6 +1535,11 @@ app.include_router(genui_search.router, prefix="/generative-ui", tags=["generati
 app.include_router(genui_components.router, prefix="/generative-ui", tags=["generative-ui-components"])
 app.include_router(genui_agui.router, prefix="/generative-ui", tags=["generative-ui-agui"])
 
+# Generative UI Plugin
+app.include_router(genui_search.router, prefix="/generative-ui", tags=["generative-ui-search"])
+app.include_router(genui_components.router, prefix="/generative-ui", tags=["generative-ui-components"])
+app.include_router(genui_agui.router, prefix="/generative-ui", tags=["generative-ui-agui"])
+
 app.include_router(memories.router, prefix="/api/v1/memories", tags=["memories"])
 app.include_router(folders.router, prefix="/api/v1/folders", tags=["folders"])
 app.include_router(groups.router, prefix="/api/v1/groups", tags=["groups"])
