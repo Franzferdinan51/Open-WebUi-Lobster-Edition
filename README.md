@@ -1,7 +1,7 @@
 # OpenWebUI Lobster Edition - OpenClaw Compatible
 
 <p align="center">
-  <img src="../../banner.png" alt="OpenWebUI Lobster Edition" width="500">
+  <img src="banner.png" alt="OpenWebUI Lobster Edition" width="500">
 </p>
 
 <p align="center">
@@ -21,19 +21,26 @@ This is **OpenWebUI Lobster Edition** - a fork of OpenWebUI with **full OpenClaw
 - 📡 **Gateway Proxy** - Route requests through OpenClaw gateway
 - 🔄 **Bidirectional Sync** - Keep models/channels in sync
 
-### Original OpenWebUI Features
+### Original OpenWebUI Features (All Included)
 
-- 🚀 Intuitive UI for Ollama, OpenAI, and compatible APIs
-- 📱 Mobile-responsive design
-- 🔌 Extensible plugin system
-- 💾 Persistent chat history
-- 📤 File upload support
-- 🧠 RAG (Retrieval-Augmented Generation)
-- 🎨 Customizable themes
-- 🌐 Multi-language support
-- 📊 Usage analytics
-- 🔧 Function calling
-- 📚 Knowledge base management
+- 🚀 **Intuitive UI** - For Ollama, OpenAI, LM Studio, and compatible APIs
+- 📱 **Mobile-Responsive** - Full support for mobile and tablet
+- 🔌 **Plugin System** - Extensible with custom functions and tools
+- 💾 **Chat History** - Persistent conversations with search
+- 📤 **File Upload** - PDF, images, documents with OCR
+- 🧠 **RAG** - Retrieval-Augmented Generation with knowledge bases
+- 🎨 **Themes** - Customizable dark/light modes
+- 🌐 **i18n** - Multi-language support (50+ languages)
+- 📊 **Analytics** - Usage tracking and insights
+- 🔧 **Function Calling** - Built-in tools and external integrations
+- 📚 **Knowledge Bases** - Create and manage document collections
+- 👥 **Multi-User** - Team collaboration with roles
+- 🔐 **Admin Panel** - Full user and system management
+- 📖 **Prompt Library** - Save and share prompts
+- 🎯 **Models** - Support for 100+ AI models
+- 🗣️ **Voice** - Text-to-speech and voice input
+- 🖼️ **Image Generation** - Built-in image generation support
+- 📝 **Code Highlighting** - Syntax highlighting for 100+ languages
 
 ## 🚀 Quick Start
 
@@ -70,8 +77,6 @@ OPENCLAW_ENABLED=true
 
 ## 📡 OpenClaw API Endpoints
 
-Once running, access OpenClaw through these endpoints:
-
 | Endpoint | Description |
 |----------|-------------|
 | `/openclaw/v1/models` | List OpenClaw models |
@@ -85,20 +90,22 @@ Once running, access OpenClaw through these endpoints:
 
 ### OpenClaw Gateway
 
-By default, connects to `http://localhost:18789`. To connect to a remote gateway:
-
+Connect to remote gateway via Tailscale:
 ```bash
-# Connect to remote OpenClaw (e.g., via Tailscale)
 OPENCLAW_GATEWAY_URL=http://100.106.80.61:18789
 ```
 
-### Models
+### Models Supported
 
-All OpenClaw models automatically appear in the model selector.
-
-### Channels
-
-Configure channels in OpenClaw - they sync automatically.
+- Ollama models (100+)
+- OpenAI models (GPT-4, GPT-3.5, DALL-E)
+- LM Studio models
+- Anthropic (via OpenAI-compatible API)
+- Google Gemini (via OpenAI-compatible API)
+- xAI Grok
+- Cohere
+- Mistral
+- And all OpenClaw-configured models
 
 ## 🤝 Contributing
 
@@ -119,6 +126,6 @@ If you find OpenWebUI Lobster Edition useful:
 
 ---
 
-**Repository:** https://github.com/Franzferdinan51/open-webui-Lobster-compatable
-**Original OpenWebUI:** https://github.com/open-webui/open-webui
+**Repository:** https://github.com/Franzferdinan51/open-webui-Lobster-compatable  
+**Original OpenWebUI:** https://github.com/open-webui/open-webui  
 **OpenClaw:** https://github.com/openclaw/openclaw
