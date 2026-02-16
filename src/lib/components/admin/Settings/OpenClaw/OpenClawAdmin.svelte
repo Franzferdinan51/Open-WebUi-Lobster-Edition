@@ -19,6 +19,13 @@
   let usage: any = null;
   let skills: any[] = [];
   
+  // Computed
+  let sessionsCount = 0;
+  let presenceCount = 0;
+  let cronEnabled = false;
+  let cronNext = '';
+  let lastChannelsRefresh = '';
+  
   const tabs: { id: TabId; label: string; icon: string }[] = [
     { id: 'overview', label: 'Overview', icon: '🖥️' },
     { id: 'agents', label: 'Agents', icon: '🤖' },
@@ -57,6 +64,13 @@
       logSources = logsRes.status === 'fulfilled' ? logsRes.value.sources || [] : [];
       usage = usageRes.status === 'fulfilled' ? usageRes.value : null;
       skills = skillsRes.status === 'fulfilled' ? skillsRes.value.skills || [] : [];
+      
+      // Compute derived values
+      sessionsCount = sessions.length;
+      presenceCount = agents.filter((a: any) => a.status === 'online').length;
+      cronEnabled = cronJobs.filter((j: any) => j.enabled).length > 0;
+      cronNext = cronJobs.length > 0 ? cronJobs[0].nextRun || 'N/A' : 'N/A';
+      lastChannelsRefresh = channels.length > 0 ? 'Active' : 'No channels';
       
       connected = true;
     } catch (e) {

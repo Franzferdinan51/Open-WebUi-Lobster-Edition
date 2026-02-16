@@ -11,7 +11,7 @@
 	let agentSmithConnected = true;
 	let agentSmithStatus = 'Connected';
 	let agentMeshUrl = 'http://100.106.80.61:18789';
-	let openclawGateway = 'http://localhost:18789';
+	let openclawGateway = 'http://100.106.80.61:18789';
 	let comfyuiUrl = 'http://localhost:8188';
 	let minimaxEnabled = true;
 	let lmStudioEnabled = true;
@@ -23,7 +23,7 @@
 
 	// Agent Registration State
 	let agentName = 'DuckBot';
-	let agentEndpoint = 'http://localhost:18789';
+	let agentEndpoint = 'http://100.106.80.61:18789';
 	let agentCapabilities = ['messaging', 'task_execution', 'orchestration', 'social-media', 'research'];
 	let registering = false;
 	let registerStatus = '';
@@ -62,7 +62,7 @@
 	const testAgentConnection = async () => {
 		toast.loading('Testing connection...');
 		try {
-			const response = await fetch('http://localhost:18789/api/health');
+			const response = await fetch('http://100.106.80.61:18789/api/health');
 			if (response.ok) {
 				toast.success('✅ Gateway connected!');
 			} else {
@@ -83,7 +83,7 @@
 		chatting = true;
 		chatResponse = '...';
 		try {
-			const response = await fetch('http://localhost:18789/v1/chat/completions', {
+			const response = await fetch('http://100.106.80.61:18789/v1/chat/completions', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
@@ -102,7 +102,7 @@
 	// Model Presets - OpenClaw uses WebSocket for control, HTTP for API
 	let presets = [
 		{ name: 'OpenClaw Gateway (WebSocket)', url: 'ws://localhost:18789', type: 'websocket', desc: 'Control Plane (WS)' },
-		{ name: 'OpenClaw Gateway (HTTP)', url: 'http://localhost:18789/v1', type: 'openai', desc: 'Model API' },
+		{ name: 'OpenClaw Gateway (HTTP)', url: 'http://100.106.80.61:18789/v1', type: 'openai', desc: 'Model API' },
 		{ name: 'MiniMax Portal', url: 'https://api.minimax.chat/v1', type: 'openai', desc: 'Cloud Model' },
 		{ name: 'LM Studio Local', url: 'http://localhost:1234/v1', type: 'openai', desc: 'Local Models' },
 		{ name: 'Ollama Local', url: 'http://localhost:11434', type: 'ollama', desc: 'Local Models' }
@@ -121,7 +121,7 @@
 			let testUrl = '';
 			if (preset.type === 'websocket') {
 				// WebSocket - test the HTTP API endpoint instead
-				testUrl = 'http://localhost:18789/v1/models';
+				testUrl = 'http://100.106.80.61:18789/v1/models';
 			} else if (preset.url.includes('/v1')) {
 				testUrl = preset.url + '/models';
 			} else if (preset.type === 'ollama') {
@@ -194,7 +194,7 @@
 				<a href="http://localhost:8188" target="_blank" class="px-3 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs hover:bg-purple-200 dark:hover:bg-purple-900/50">
 					🎨 ComfyUI
 				</a>
-				<a href="http://localhost:18789/docs" target="_blank" class="px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs hover:bg-green-200 dark:hover:bg-green-900/50">
+				<a href="http://100.106.80.61:18789/docs" target="_blank" class="px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs hover:bg-green-200 dark:hover:bg-green-900/50">
 					📚 API Docs
 				</a>
 			</div>
@@ -309,7 +309,7 @@
 					
 					<div>
 						<label class="text-xs text-gray-500">Gateway Endpoint</label>
-						<input type="text" bind:value={agentEndpoint} class="input text-sm w-full" placeholder="http://localhost:18789" />
+						<input type="text" bind:value={agentEndpoint} class="input text-sm w-full" placeholder="http://100.106.80.61:18789" />
 					</div>
 					
 					<div class="flex gap-2">

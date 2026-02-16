@@ -16,7 +16,7 @@
   let scanStatus = '';
   
   // Gateway form
-  let gatewayUrl = 'ws://localhost:18789';
+  let gatewayUrl = 'ws://100.106.80.61:18789';
   let gatewayToken = '';
   let testing = false;
   let testResult: { success: boolean; error?: string } | null = null;
@@ -134,7 +134,7 @@
         type="text" 
         bind:value={gatewayUrl}
         class="input text-sm w-full"
-        placeholder="ws://localhost:18789"
+        placeholder="ws://100.106.80.61:18789"
       />
     </div>
     <div>
