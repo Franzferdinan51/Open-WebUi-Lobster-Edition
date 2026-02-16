@@ -1,14 +1,14 @@
-# OpenWebUI Lobster Edition - OpenClaw Compatible
+# OpenWebUI Lobster Edition - OpenClaw Agent First WebUI
 
 <p align="center">
   <img src="banner.png" alt="OpenWebUI Lobster Edition" width="500">
 </p>
 
 <p align="center">
-  <strong>OpenWebUI with Full OpenClaw Integration</strong>
+  <strong>🦞 OpenClaw Agent First WebUI - Built for Multi-Agent AI Orchestration</strong>
 </p>
 
-This is **OpenWebUI Lobster Edition** - a fork of OpenWebUI with **full OpenClaw integration** built-in.
+This is **OpenWebUI Lobster Edition** - the **first WebUI designed specifically for OpenClaw agents** with full OpenClaw integration built-in.
 
 ## 🌟 Features
 

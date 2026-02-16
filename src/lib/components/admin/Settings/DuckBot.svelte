@@ -38,9 +38,39 @@
 		}
 	};
 
-	const testConnection = async (url: string) => {
-		toast.success(`Testing connection to ${url}...`);
-		// Implementation would go here
+	const testConnection = async (preset: any) => {
+		toast.loading(`Testing ${preset.name}...`, { duration: 2000 });
+		try {
+			const response = await fetch(preset.url.replace('ws://', 'http://').replace('/v1', '') + '/health', {
+				method: 'GET',
+				signal: AbortSignal.timeout(5000)
+			});
+			if (response.ok) {
+				toast.success(`✅ ${preset.name} connected!`);
+			} else {
+				toast.error(`❌ ${preset.name} returned: ${response.status}`);
+			}
+		} catch (error) {
+			// Try alternative endpoint
+			try {
+				const altUrl = preset.type === 'websocket' 
+					? preset.url.replace('ws://', 'http://') 
+					: preset.url.includes('/v1') 
+						? preset.url 
+						: preset.url + '/v1';
+				const response = await fetch(altUrl + '/models', {
+					method: 'GET',
+					signal: AbortSignal.timeout(5000)
+				});
+				if (response.ok) {
+					toast.success(`✅ ${preset.name} connected!`);
+				} else {
+					toast.error(`❌ ${preset.name} unreachable`);
+				}
+			} catch {
+				toast.error(`❌ ${preset.name} failed to connect`);
+			}
+		}
 	};
 
 	onMount(() => {
@@ -58,10 +88,10 @@
 		<!-- DuckBot Lobster Edition Header -->
 		<div class="lobster-card p-4">
 			<div class="flex items-center gap-2 text-lg font-bold lobster-gradient-text">
-				🦞 DuckBot Lobster Edition
+				🦞 OpenClaw Agent First WebUI
 			</div>
 			<div class="text-xs mt-1 text-gray-500">
-				OpenWebUI with full OpenClaw Integration
+				Built for Multi-Agent AI Orchestration with OpenClaw
 			</div>
 		</div>
 
@@ -155,8 +185,8 @@
 							<span class="text-xs text-gray-500">({preset.desc})</span>
 						</div>
 						<div class="flex items-center gap-2">
-							<input type="text" value={preset.url} class="input text-xs" readonly />
-							<button type="button" class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600" on:click={() => testConnection(preset.url)}>
+							<input type="text" bind:value={preset.url} class="input text-xs" placeholder="Enter URL..." />
+							<button type="button" class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600" on:click={() => testConnection(preset)}>
 								Test
 							</button>
 						</div>
