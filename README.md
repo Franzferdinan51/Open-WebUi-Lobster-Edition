@@ -32,6 +32,17 @@ This is **OpenWebUI Lobster Edition** - a fork of OpenWebUI with **full OpenClaw
 - 🛡️ **Catastrophe Protocols** - Recovery procedures
 - 📊 **Mesh Dashboard** - View all agents and status
 
+### OpenClaw Control Panel
+
+- ⚙️ **Config Management** - View/edit OpenClaw configuration
+- 📱 **Channel Control** - Manage Telegram, WhatsApp, Discord, Slack, Signal, iMessage
+- 🛠️ **Skills Control** - Enable/disable OpenClaw skills
+- 🤖 **Agent Management** - View and manage agents
+- ⏰ **Cron Jobs** - Create and manage scheduled tasks
+- 💻 **Session Management** - View active sessions
+- 🌐 **Node Management** - View connected nodes
+- 📋 **Logs** - View OpenClaw logs
+
 ### Original OpenWebUI Features (All Included)
 
 - 🚀 **Intuitive UI** - For Ollama, OpenAI, LM Studio, and compatible APIs
@@ -117,6 +128,20 @@ AGENT_MESH_ENABLED=true
 | `/agent-mesh/api/mesh/updates` | System updates |
 | `/agent-mesh/api/mesh/catastrophe` | Catastrophe reporting |
 | `/agent-mesh/api/mesh/status` | Mesh connection status |
+
+## 📡 OpenClaw Control Panel Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `/openclaw-control/api/openclaw/config` | Get/update config |
+| `/openclaw-control/api/openclaw/status` | Gateway status |
+| `/openclaw-control/api/openclaw/channels` | Manage channels |
+| `/openclaw-control/api/openclaw/skills` | Manage skills |
+| `/openclaw-control/api/openclaw/agents` | View agents |
+| `/openclaw-control/api/openclaw/cron` | Manage cron jobs |
+| `/openclaw-control/api/openclaw/sessions` | View sessions |
+| `/openclaw-control/api/openclaw/nodes` | View nodes |
+| `/openclaw-control/api/openclaw/logs` | View logs |
 
 ## 🔌 Compatibility
 

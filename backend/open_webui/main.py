@@ -109,6 +109,12 @@ from open_webui.plugins.agent_mesh.routers import messages as mesh_messages
 from open_webui.plugins.agent_mesh.routers import health as mesh_health
 from open_webui.plugins.agent_mesh.routers import files as mesh_files
 
+# OpenClaw Control Panel
+from open_webui.plugins.openclaw_control.routers import config as control_config
+from open_webui.plugins.openclaw_control.routers import channels as control_channels
+from open_webui.plugins.openclaw_control.routers import skills as control_skills
+from open_webui.plugins.openclaw_control.routers import management as control_management
+
 from open_webui.routers.retrieval import (
     get_embedding_function,
     get_reranking_function,
@@ -1500,6 +1506,12 @@ app.include_router(mesh_agents.router, prefix="/agent-mesh", tags=["agent-mesh-a
 app.include_router(mesh_messages.router, prefix="/agent-mesh", tags=["agent-mesh-messages"])
 app.include_router(mesh_health.router, prefix="/agent-mesh", tags=["agent-mesh-health"])
 app.include_router(mesh_files.router, prefix="/agent-mesh", tags=["agent-mesh-files"])
+
+# OpenClaw Control Panel - Control OpenClaw from OpenWebUI
+app.include_router(control_config.router, prefix="/openclaw-control", tags=["openclaw-control-config"])
+app.include_router(control_channels.router, prefix="/openclaw-control", tags=["openclaw-control-channels"])
+app.include_router(control_skills.router, prefix="/openclaw-control", tags=["openclaw-control-skills"])
+app.include_router(control_management.router, prefix="/openclaw-control", tags=["openclaw-control-management"])
 
 app.include_router(memories.router, prefix="/api/v1/memories", tags=["memories"])
 app.include_router(folders.router, prefix="/api/v1/folders", tags=["folders"])
