@@ -21,8 +21,16 @@ This is **OpenWebUI Lobster Edition** - a fork of OpenWebUI with **full OpenClaw
 - 📡 **Gateway Proxy** - Route requests through OpenClaw gateway
 - 🔄 **Bidirectional Sync** - Keep models/channels in sync
 - 🌐 **OpenAI Compatible** - All /v1/* endpoints work with OpenClaw
-- 🔌 **Ollama Compatible** - Ollama requests route through OpenClaw
-- 📊 **Model Sync** - Automatic model synchronization
+
+### Agent Mesh Integration (Full)
+
+- 🤝 **Multi-Agent Communication** - Agent-to-agent messaging
+- 📋 **Agent Registry** - Register and discover agents
+- ❤️ **Health Monitoring** - Real-time agent health dashboard
+- 📁 **File Transfer** - Share files between agents
+- 🔄 **System Updates** - Centralized update management
+- 🛡️ **Catastrophe Protocols** - Recovery procedures
+- 📊 **Mesh Dashboard** - View all agents and status
 
 ### Original OpenWebUI Features (All Included)
 
@@ -76,6 +84,11 @@ pip install -r requirements.txt
 OPENCLAW_GATEWAY_URL=http://localhost:18789
 OPENCLAW_GATEWAY_KEY=your-api-key
 OPENCLAW_ENABLED=true
+
+# Agent Mesh Configuration
+AGENT_MESH_URL=http://localhost:4000
+AGENT_MESH_KEY=openclaw-mesh-default-key
+AGENT_MESH_ENABLED=true
 ```
 
 ## 📡 OpenClaw API Endpoints
@@ -91,6 +104,19 @@ OPENCLAW_ENABLED=true
 | `/openclaw/api/skills` | List skills |
 | `/openclaw/api/sync` | Sync models from OpenClaw |
 | `/openclaw/api/status` | Get OpenClaw connection status |
+
+## 📡 Agent Mesh API Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `/agent-mesh/api/mesh/agents` | List all agents |
+| `/agent-mesh/api/mesh/agents/register` | Register agent |
+| `/agent-mesh/api/mesh/messages` | Send message between agents |
+| `/agent-mesh/api/mesh/health/dashboard` | Health dashboard |
+| `/agent-mesh/api/mesh/files` | File transfer |
+| `/agent-mesh/api/mesh/updates` | System updates |
+| `/agent-mesh/api/mesh/catastrophe` | Catastrophe reporting |
+| `/agent-mesh/api/mesh/status` | Mesh connection status |
 
 ## 🔌 Compatibility
 

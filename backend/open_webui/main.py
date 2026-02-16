@@ -103,6 +103,12 @@ from open_webui.plugins.openclaw.routers import auth as openclaw_auth
 from open_webui.plugins.openclaw.routers import channels as openclaw_channels
 from open_webui.plugins.openclaw.routers import skills as openclaw_skills
 
+# Agent Mesh Plugin
+from open_webui.plugins.agent_mesh.routers import agents as mesh_agents
+from open_webui.plugins.agent_mesh.routers import messages as mesh_messages
+from open_webui.plugins.agent_mesh.routers import health as mesh_health
+from open_webui.plugins.agent_mesh.routers import files as mesh_files
+
 from open_webui.routers.retrieval import (
     get_embedding_function,
     get_reranking_function,
@@ -1488,6 +1494,12 @@ app.include_router(openclaw_models.router, prefix="/openclaw", tags=["openclaw-m
 app.include_router(openclaw_auth.router, prefix="/openclaw", tags=["openclaw-auth"])
 app.include_router(openclaw_channels.router, prefix="/openclaw", tags=["openclaw-channels"])
 app.include_router(openclaw_skills.router, prefix="/openclaw", tags=["openclaw-skills"])
+
+# Agent Mesh Plugin - Multi-Agent Communication
+app.include_router(mesh_agents.router, prefix="/agent-mesh", tags=["agent-mesh-agents"])
+app.include_router(mesh_messages.router, prefix="/agent-mesh", tags=["agent-mesh-messages"])
+app.include_router(mesh_health.router, prefix="/agent-mesh", tags=["agent-mesh-health"])
+app.include_router(mesh_files.router, prefix="/agent-mesh", tags=["agent-mesh-files"])
 
 app.include_router(memories.router, prefix="/api/v1/memories", tags=["memories"])
 app.include_router(folders.router, prefix="/api/v1/folders", tags=["folders"])

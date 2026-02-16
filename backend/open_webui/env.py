@@ -995,3 +995,11 @@ EXTERNAL_PWA_MANIFEST_URL = os.environ.get("EXTERNAL_PWA_MANIFEST_URL")
 OPENCLAW_GATEWAY_URL = os.environ.get("OPENCLAW_GATEWAY_URL", "http://localhost:18789")
 OPENCLAW_GATEWAY_KEY = os.environ.get("OPENCLAW_GATEWAY_KEY", "")
 OPENCLAW_ENABLED = os.environ.get("OPENCLAW_ENABLED", "true").lower() == "true"
+
+####################################
+# AGENT MESH INTEGRATION
+####################################
+
+AGENT_MESH_URL = os.environ.get("AGENT_MESH_URL", "http://localhost:4000")
+AGENT_MESH_KEY = os.environ.get("AGENT_MESH_KEY", "openclaw-mesh-default-key")
+AGENT_MESH_ENABLED = os.environ.get("AGENT_MESH_ENABLED", "true").lower() == "true"
