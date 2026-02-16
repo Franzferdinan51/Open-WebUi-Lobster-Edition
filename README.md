@@ -179,6 +179,7 @@ If you find OpenWebUI Lobster Edition useful:
 
 ---
 
-**Repository:** https://github.com/Franzferdinan51/open-webui-Lobster-compatable  
+**Repository:** https://github.com/Franzferdinan51/Open-WebUi-Lobster-Edition  
 **Original OpenWebUI:** https://github.com/open-webui/open-webui  
-**OpenClaw:** https://github.com/openclaw/openclaw
+**OpenClaw:** https://github.com/openclaw/openclaw  
+**Agent Mesh:** https://github.com/Franzferdinan51/agent-mesh-api
