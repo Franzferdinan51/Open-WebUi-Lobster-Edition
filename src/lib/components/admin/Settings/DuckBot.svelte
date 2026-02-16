@@ -39,37 +39,33 @@
 	};
 
 	const testConnection = async (preset: any) => {
-		toast.loading(`Testing ${preset.name}...`, { duration: 2000 });
+		toast.loading(`Testing ${preset.name}...`, { duration: 3000 });
 		try {
-			const response = await fetch(preset.url.replace('ws://', 'http://').replace('/v1', '') + '/health', {
+			let testUrl = '';
+			if (preset.type === 'websocket') {
+				// WebSocket - test the HTTP API endpoint instead
+				testUrl = 'http://localhost:18789/v1/models';
+			} else if (preset.url.includes('/v1')) {
+				testUrl = preset.url + '/models';
+			} else if (preset.type === 'ollama') {
+				testUrl = preset.url + '/api/tags';
+			} else {
+				testUrl = preset.url + '/v1/models';
+			}
+			
+			const response = await fetch(testUrl, {
 				method: 'GET',
 				signal: AbortSignal.timeout(5000)
 			});
 			if (response.ok) {
 				toast.success(`✅ ${preset.name} connected!`);
+			} else if (response.status === 401) {
+				toast.success(`✅ ${preset.name} connected (auth required)`);
 			} else {
 				toast.error(`❌ ${preset.name} returned: ${response.status}`);
 			}
-		} catch (error) {
-			// Try alternative endpoint
-			try {
-				const altUrl = preset.type === 'websocket' 
-					? preset.url.replace('ws://', 'http://') 
-					: preset.url.includes('/v1') 
-						? preset.url 
-						: preset.url + '/v1';
-				const response = await fetch(altUrl + '/models', {
-					method: 'GET',
-					signal: AbortSignal.timeout(5000)
-				});
-				if (response.ok) {
-					toast.success(`✅ ${preset.name} connected!`);
-				} else {
-					toast.error(`❌ ${preset.name} unreachable`);
-				}
-			} catch {
-				toast.error(`❌ ${preset.name} failed to connect`);
-			}
+		} catch (error: any) {
+			toast.error(`❌ ${preset.name} failed: ${error.message || 'Connection refused'}`);
 		}
 	};
 

@@ -8,9 +8,9 @@ cd "$SCRIPT_DIR" || exit
 # =====================
 export WEBUI_NAME="Open WebUI Lobster Edition 🦞"
 
-# Default models - prefer OpenClaw, LM Studio, and MiniMax
-export DEFAULT_MODELS="openclaw/*,lmstudio/*,minimax-portal/*"
-export DEFAULT_PINNED_MODELS="openclaw/gpt-5.2,lmstudio/qwen3-coder-next,minimax-portal/MiniMax-M2.5"
+# Default models - include OpenClaw Agent
+export DEFAULT_MODELS="openclaw/*,lmstudio/*,minimax-portal/*,openclaw-agent"
+export DEFAULT_PINNED_MODELS="openclaw/gpt-5.2,openclaw-agent,lmstudio/qwen3-coder-next,minimax-portal/MiniMax-M2.5"
 
 # OpenClaw Gateway as primary model source
 # Add as preset connections (both Ollama and OpenAI-compatible)

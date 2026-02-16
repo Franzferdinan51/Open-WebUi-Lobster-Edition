@@ -61,6 +61,13 @@ async def list_openclaw_models(user: User = Depends(get_verified_user)):
             OpenAIModel(id="openclaw:gemini-pro", root="gemini-pro", owned_by="google"),
         ]
     
+    # Always add OpenClaw Agent
+    models.append(OpenAIModel(
+        id="openclaw-agent",
+        root="openclaw-agent",
+        owned_by="openclaw"
+    ))
+    
     return {"object": "list", "data": models}
 
 
