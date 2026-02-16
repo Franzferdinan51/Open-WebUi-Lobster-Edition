@@ -63,8 +63,8 @@ async def list_openclaw_models():
     
     # Always add OpenClaw Agent
     models.append(OpenAIModel(
-        id="openclaw-agent",
-        root="openclaw-agent",
+        id="🦞 OpenClaw Agent",
+        root="🦞 OpenClaw Agent",
         owned_by="openclaw"
     ))
     
@@ -115,13 +115,17 @@ async def chat_completions(
     # Get request body
     body = await request.json()
     
-    model = body.get("model", "openclaw:gpt-5.2")
+    model = body.get("model", "🦞 OpenClaw Agent")
     messages = body.get("messages", [])
     stream = body.get("stream", False)
     
     # Remove openclaw: prefix if present
     if model.startswith("openclaw:"):
         model = model[9:]
+    
+    # Handle emoji model name
+    if model == "🦞 OpenClaw Agent" or model == "openclaw-agent":
+        model = "gpt-4"  # Default to a capable model
     
     # Prepare request to OpenClaw
     url = get_chat_completion_url()

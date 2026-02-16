@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
+	import { GatewayDiscovery } from '$lib/components/admin/Settings/OpenClaw';
 
 	const i18n = getContext('i18n');
 
@@ -327,6 +328,14 @@
 					{/if}
 				</div>
 			</div>
+		</div>
+
+		<!-- Gateway Discovery -->
+		<div>
+			<div class=" mb-2.5 text-sm font-medium flex items-center gap-2">
+				🔍 Gateway Discovery
+			</div>
+			<GatewayDiscovery />
 		</div>
 
 		<!-- Test Chat -->
