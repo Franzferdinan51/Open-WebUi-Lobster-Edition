@@ -34,7 +34,9 @@
 		{ name: 'OpenWebUI', url: 'http://localhost:8080/api/v1/models', status: 'unknown', icon: '🦞' },
 		{ name: 'LM Studio', url: 'http://localhost:1234/v1/models', status: 'unknown', icon: '💻' },
 		{ name: 'Agent Mesh', url: 'http://100.74.88.40:4000/api/health', status: 'unknown', icon: '🔗' },
-		{ name: 'ComfyUI', url: 'http://localhost:8188/system_stats', status: 'unknown', icon: '🎨' }
+		{ name: 'ComfyUI', url: 'http://localhost:8188/system_stats', status: 'unknown', icon: '🎨' },
+		{ name: 'ClawAPI', url: 'http://localhost:5001/api/status', status: 'unknown', icon: '🔧' },
+		{ name: 'MasterDash', url: 'http://localhost:5000/api/status', status: 'unknown', icon: '📊' }
 	];
 	let checkingServices = false;
 
@@ -261,6 +263,39 @@
 						}`}></span>
 					</div>
 				{/each}
+			</div>
+		</div>
+
+		<!-- Quick Actions -->
+		<div class="border border-gray-200 dark:border-gray-700 rounded-lg p-3 bg-gray-50 dark:bg-gray-900/20">
+			<div class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+				⚡ Quick Actions
+			</div>
+			<div class="grid grid-cols-2 gap-2">
+				<button 
+					class="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs font-medium transition"
+					on:click={() => window.open('http://100.106.80.61:18789/', '_blank')}
+				>
+					🌐 Gateway UI
+				</button>
+				<button 
+					class="px-3 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded text-xs font-medium transition"
+					on:click={() => window.open('http://localhost:8188/', '_blank')}
+				>
+					🎨 ComfyUI
+				</button>
+				<button 
+					class="px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded text-xs font-medium transition"
+					on:click={() => window.open('http://localhost:5000/', '_blank')}
+				>
+					📊 Dashboard
+				</button>
+				<button 
+					class="px-3 py-2 bg-green-500 hover:bg-green-600 text-white rounded text-xs font-medium transition"
+					on:click={() => window.open('http://localhost:5001/', '_blank')}
+				>
+					🔧 ClawAPI
+				</button>
 			</div>
 		</div>
 
