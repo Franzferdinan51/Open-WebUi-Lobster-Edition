@@ -27,6 +27,40 @@
 	let agentCapabilities = ['messaging', 'task_execution', 'orchestration', 'social-media', 'research'];
 	let registering = false;
 	let registerStatus = '';
+
+	// Service Health Status
+	let services = [
+		{ name: 'Gateway', url: 'http://100.106.80.61:18789/api/health', status: 'unknown', icon: '🌐' },
+		{ name: 'OpenWebUI', url: 'http://localhost:8080/api/v1/models', status: 'unknown', icon: '🦞' },
+		{ name: 'LM Studio', url: 'http://localhost:1234/v1/models', status: 'unknown', icon: '💻' },
+		{ name: 'Agent Mesh', url: 'http://100.74.88.40:4000/api/health', status: 'unknown', icon: '🔗' },
+		{ name: 'ComfyUI', url: 'http://localhost:8188/system_stats', status: 'unknown', icon: '🎨' }
+	];
+	let checkingServices = false;
+
+	const checkAllServices = async () => {
+		checkingServices = true;
+		const results = await Promise.allSettled(
+			services.map(async (service) => {
+				try {
+					const response = await fetch(service.url, { signal: AbortSignal.timeout(5000) });
+					return { ...service, status: response.ok ? 'online' : 'error' };
+				} catch {
+					return { ...service, status: 'offline' };
+				}
+			})
+		);
+		services = results.map((r: any) => r.value || r.reason);
+		checkingServices = false;
+	};
+
+	// Check services on mount
+	onMount(() => {
+		checkAllServices();
+		// Auto-refresh every 30 seconds
+		const interval = setInterval(checkAllServices, 30000);
+		return () => clearInterval(interval);
+	});
 	
 	const registerAgent = async () => {
 		registering = true;
@@ -197,6 +231,36 @@
 				<a href="http://100.106.80.61:18789/docs" target="_blank" class="px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs hover:bg-green-200 dark:hover:bg-green-900/50">
 					📚 API Docs
 				</a>
+			</div>
+		</div>
+
+		<!-- Service Health Dashboard -->
+		<div class="border border-gray-200 dark:border-gray-700 rounded-lg p-3 bg-gray-50 dark:bg-gray-900/20">
+			<div class="flex items-center justify-between mb-3">
+				<div class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+					💚 Service Health
+				</div>
+				<button
+					on:click={checkAllServices}
+					disabled={checkingServices}
+					class="px-2 py-1 text-xs rounded bg-blue-500 hover:bg-blue-600 text-white disabled:opacity-50"
+				>
+					{checkingServices ? '⏳' : '🔄'} Refresh
+				</button>
+			</div>
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+				{#each services as service}
+					<div class="flex items-center gap-2 px-2 py-1.5 rounded bg-white dark:bg-gray-800 text-xs">
+						<span>{service.icon}</span>
+						<span class="flex-1 truncate">{service.name}</span>
+						<span class={`w-2 h-2 rounded-full ${
+							service.status === 'online' ? 'bg-green-500' :
+							service.status === 'error' ? 'bg-yellow-500' :
+							service.status === 'offline' ? 'bg-red-500' :
+							'bg-gray-400'
+						}`}></span>
+					</div>
+				{/each}
 			</div>
 		</div>
 
